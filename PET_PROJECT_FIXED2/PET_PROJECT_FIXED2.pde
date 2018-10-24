@@ -2,7 +2,7 @@ OPC opc;
 
 void setup()
 {
-  size(640, 320, P3D);
+  size(1280, 640, P3D);
   colorMode(HSB, 100);
 
   opc = new OPC(this, "127.0.0.1", 7890);
@@ -17,12 +17,14 @@ void setup()
 }
 
 void draw() {  
+
+
   setupDraw();
 
 
 
   //  Sphere(float lines, int r, int sWeight, int r, int g, int b) {
-  Sphere test1 = new Sphere(1000, mouseY, 3, 255, 255, 255, 70);
+  Sphere test1 = new Sphere(2000, mouseY, 2, 0, 0, 100, 70);
    // Sphere test2 = new Sphere(800, mouseY, 3, 0, 0, 255, 70);
 
   test1.display();
