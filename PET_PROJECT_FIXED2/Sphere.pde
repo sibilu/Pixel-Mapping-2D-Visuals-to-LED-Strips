@@ -20,7 +20,7 @@ int opacity;
     this.sWeight = sWeight;
     this.opacity = opacity;
 
-    xMov = map(mouseX, 0, height, -r, 400  );
+    xMov = map(mouseX, 0, width, -r, 400  );
     yMov = map(mouseY, 0, height, 23, 250);
   }
 
