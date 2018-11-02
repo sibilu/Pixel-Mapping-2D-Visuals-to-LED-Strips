@@ -11,14 +11,8 @@ void setup() {
   //    constructor: 
   //    opc.ledStrip(index, count, x, y, spacing, angle, reversed)
 
-  opc.ledStrip(0, 64, width/2, (height/8)*1-10, width / 70.0, 0, false);
-  opc.ledStrip(65, 64, width/2, (height/8)*2-10, width / 70.0, 0, false);
-  opc.ledStrip(130, 64, width/2, (height/8)*3-10, width / 70.0, 0, false);
-  opc.ledStrip(195, 64, width/2, (height/8)*4-10, width / 70.0, 0, false);
-  opc.ledStrip(260, 64, width/2, (height/8)*5-10, width / 70.0, 0, false);
-  opc.ledStrip(325, 64, width/2, (height/8)*6-10, width / 70.0, 0, false);
-  opc.ledStrip(390, 64, width/2, (height/8)*7-10, width / 70.0, 0, false);
-  opc.ledStrip(455, 64, width/2, (height/8)*8-10, width / 70.0, 0, false);
+  opc.ledStrip(0, 64, width/2, (height/2), width / 70.0, 0, true);
+  
 
   //opc.ledGrid8x8(1 * 64, width * 3/8, height * 1/4, height/16, 0, true, false);
   //opc.ledGrid8x8(2 * 64, width * 5/8, height * 1/4, height/16, 0, true, false);
