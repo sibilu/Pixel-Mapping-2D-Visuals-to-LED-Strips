@@ -76,7 +76,8 @@ void draw()
 
   // rain function called
   rain();
-  tint(255, 255, 255, 100+v2YMapped);
+  //tint(255, 255, 255, 100+v2YMapped);
+  tint(150, 100, 255, 100+yMap);
   imScroll();
   // fill black, no stroke
   fill(0);
@@ -94,9 +95,9 @@ void rain() {
     drops[i].fall();
     // if mouse is pressed, stroke colour changes
     if (mousePressed) {
-      stroke(i, i, 255);
+      stroke(255, 255, 255);
     } else {
-      stroke(255, i, 255);
+      stroke(i, i, 255);
     }
     drops[i].show();
   }
@@ -113,4 +114,17 @@ void imScroll() {
   // Use two copies of the image, so it seems to repeat infinitely  
   image(im, 0, y, width, imHeight);
   image(im, 0, y + imHeight, width, imHeight);
+}
+
+void keyPressed() {
+  int t = tracker.getThreshold();
+  if (key == CODED) {
+    if (keyCode == UP) {
+      t+=5;
+      tracker.setThreshold(t);
+    } else if (keyCode == DOWN) {
+      t-=5;
+      tracker.setThreshold(t);
+    }
+  }
 }
