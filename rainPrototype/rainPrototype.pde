@@ -33,15 +33,17 @@ void setup()
   opc = new OPC(this, "127.0.0.1", 7890);
 
   // Map one 64-LED strip to the center of the window
-  opc.ledStrip(0, 64, width/2, height/2, width / 70.0, 0, false);
+  opc.ledStrip(0, 64, width/2, height/10*9, width / 90.0, 0, false);
+  opc.ledStrip(64, 64, 206, height/10*5+14, width / 90.0, radians(120), false);
+    opc.ledStrip(128, 64, 431, 275, width / 90.0, radians(60), false);
+
 }
 
 void draw()
 {
- // Run the tracking analysis
+  // Run the tracking analysis
   tracker.track();
   // Show the image
-  tracker.display();
 
   // Let's draw the raw location
   PVector v1 = tracker.getPos();
@@ -50,7 +52,7 @@ void draw()
   ellipse(v1.x, v1.y, 20, 20);
 
   // Let's draw the "lerped" location
-   v2 = tracker.getLerpedPos();
+  v2 = tracker.getLerpedPos();
   fill(100, 250, 50, 200);
   noStroke();
   ellipse(v2.x, v2.y, 20, 20);
@@ -65,8 +67,8 @@ void draw()
   // mapping mouseX and mouseY to other values
   yMap =  map(mouseY, height/4, height, 0, 350);
   xMap =  map(mouseX, 0, width, 0, height/2);
-  float v2XMapped = map(v2.x, 0, 640, 0,350);
-  float v2YMapped = map(v2.x, 0, 520, 0,350);
+  float v2XMapped = map(v2.x, 0, 640, 0, 350);
+  float v2YMapped = map(v2.x, 0, 520, 0, 350);
   // stroke and fill - fill follows the mouse mapped
   noStroke(); 
   fill(0, 0, 0);
