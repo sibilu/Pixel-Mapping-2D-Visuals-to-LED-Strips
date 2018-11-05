@@ -30,7 +30,7 @@ void draw()
 
   // stroke and fill - fill follows the mouse mapped
   noStroke(); 
-  fill(0, 0, 0, xMap);
+  fill(0, 0, 0);
 
   // background rect
   rect(0, 0, width, height);
@@ -54,9 +54,9 @@ void rain() {
     drops[i].fall();
    // if mouse is pressed, stroke colour changes
     if (mousePressed) {
-      stroke(i, i, 200);
+      stroke(i, i, 255);
     } else {
-      stroke(yMap, i, yMap);
+      stroke(255, i, 255);
     }
     drops[i].show();
   }
