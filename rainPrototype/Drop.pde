@@ -1,7 +1,3 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/KkyIDI6rQJI
 
 class Drop {
   float x;
@@ -19,7 +15,7 @@ class Drop {
   }
 
   void fall() {
-    y = y + yspeed;
+    y+= yspeed;
     float grav = map(z, 0, 20, 0, 0.2);
     yspeed = yspeed + grav;
 
@@ -33,7 +29,6 @@ class Drop {
 
     float thick = map(z, 0, 20, 1, 9);
     strokeWeight(thick);
-    stroke(0, 200, 255);
     line(x, y, x, y+len);
   }
 }

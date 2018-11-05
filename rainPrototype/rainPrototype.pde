@@ -1,17 +1,13 @@
 OPC opc;
 PImage im;
-int locationXright = 400;
-int locationXleft = 400;
-boolean moveTopQuarter = false;
-boolean moveBottomQuarter = false;
 Drop[] drops = new Drop[400];
-float r;
-float xLim;
+float xMap;
+float yMap;
+
 void setup()
 {
   size(800, 500);
-  // Load a sample image
-  im = loadImage("water.jpg");
+
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Drop(random(width));
   }
@@ -27,11 +23,11 @@ void setup()
 void draw()
 {
 
-  xLim = map(mouseY, 0, height, 0, width/2);
-
+  xMap =  map(mouseY, 0, height, 0, width/2);
+  yMap =  map(mouseX, 0, width, 0, height/2);
   noStroke(); 
   //scrollImg();
-  fill(0, 0, 0, xLim);
+  fill(0, 0, 0, xMap);
 
   rect(0, 0, width, height);
 
@@ -40,11 +36,8 @@ void draw()
   fill(0);
   noStroke();  
 
-  rect(0, 0, xLim, height);
-  rect(width-xLim, 0, width, height);
-
-  println("xLim: " +xLim);
-  println(width - xLim);
+  rect(0, 0, xMap, height);
+  rect(width-xMap, 0, width, height);
 }
 
 void rain() {
@@ -52,19 +45,11 @@ void rain() {
 
   for (int i = 0; i < drops.length; i++) {
     drops[i].fall();
+     if (mousePressed) {
+    stroke(i, i, 200);
+  } else {
+    stroke(yMap, i, yMap);
+  }
     drops[i].show();
   }
-}
-
-void scrollImg() {
-
-  // Scale the image so that it matches the width of the window
-  int imHeight = im.height * width / im.width;
-
-  // Scroll down slowly, and wrap around
-  float speed = 0.05;
-  float y = (millis() * -speed) % imHeight;
-  // Use two copies of the image, so it seems to repeat infinitely  
-  image(im, 0, y, width, imHeight);
-  image(im, 0, y + imHeight, width, imHeight);
 }
